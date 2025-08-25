@@ -1,0 +1,88 @@
+Práctica realizada por: Estela Pillo González
+
+Título: Análisis de datos de Pokémon y simulación de combates.
+
+Pequeña descripción: 
+    El objetivo es desarrollar un programa, con Flex y Bison, capaz de recibir y analizar un JSON con datos de distintos Pokémon. Una vez validado se recogerán
+    los datos y se podrán simular combates, ver los pokémon guardados, añadir nuevos pokémon...
+    El combate se realiza de forma interactiva por terminal, saliendo los datos y resultados de cada turno del combate y dejando escoger entre varias opciones.
+    Para la primera parte se toman como errores etiquetas que no aparezcan, comas que falten, valores mal puestos...
+    Para la segunda parte se gestiona que solo sean aceptados los comandos que se indican como válidos en el menú.
+
+Ficheros que componen el proyecto:
+    lexer.l, parser.y -> análisis léxico y sintáctico.
+    pokemon.h -> struct donde se guardarán los datos de los pokémon.
+    pokemon.json -> archivo que se va a analizar.
+    Makefile -> script de compilación.
+    pokemonAscii.h -> esto contiene algunos dibujos en ascii, meramente decorativo. 
+
+Descripción del analizador léxico: 
+    Primero traté de reconocer símbolos utilizados en JSON, como corchetes y llaves. Después hice que se reconociesen los campos que deben aparecer: id, hp, type...
+    También proceso los números y cadenas de texto e ignoro las tabulaciones. 
+    Para la segunda parte, la de combate, defino patrones para reconocer los comandos: atacar, añadir pokemon, cambiar...
+    En todos ellos devuelvo los tokens correspondientes para que puedan ser utilizados por el analizador sintáctico.
+
+Descripción del analizador sintáctico:
+    Este es el más extenso y el que más tiempo me llevó. Aquí incluyo código para manejar ambas partes, el analizador y el combate.
+    Primero de todo defino tokens para el analizador de JSON, incluyendo los corchetes, llaves, secciones...
+    Después están los tokens específicos para el combate: ATACAR, CAMBIAR, CREAR...
+    La grámatica esta dividida en esas dos partes principales: json_pokemons y battle_commands
+    En esta gramática manejo distintos errores que comento más adelante.
+
+    Hay dos modos presentes al ejecutar el programa:
+        EL primer modo permite analizar el archivo JSON: lo valida y guarda la información, mostrándola luego por pantalla.
+        El segundo modo permite realizar combates(se analiza el JSON automáticamente si elegimos esta opción), los cuales son entre dos equipos de 3 Pokémon seleccionados 
+        de manera aleatoria entre todos los disponibles en nuestra Pokédex. 
+            Durante y/o antes del combate se podrá ver la Pokédex, crear tu equipo, ver tu equipo(se crea si no lo has creado todavía), añadir un nuevo Pokémon y salir del programa.
+            Además, entre los turnos del combate se podrá cambiar de Pokémon de manera aleatoria, aunque podrás realizarlo todas las veces que quieras hasta que salga un Pokémon de tu gusto,
+            todo esto teniendo en cuenta que te queden Pokémon suficientes en el equipo.
+
+Tratamiento de errores: 
+    Errores relacionados con el JSON:
+        El analizador toma como error lo siguiente:
+            - Falta de claves.
+            - Secciones/claves mal posicionadas.
+            - Falta de valores en las claves.
+            - Falta de coma final.
+    Errores relacionados con la interacción:
+        - Que se introduzcan comandos no válidos, ya sea palabras o dígitos inválidos
+    Errores relacionados con el combate:
+        - Que se intente cambiar antes de iniciar un combate.
+        - Que se intente cambiar cuando no te quedan Pokémon suficientes.
+
+Instrucciones de compilación/ejecución:
+    Para compilar y ejecutar el código bastará con poner 'make'.
+    Una vez iniciado se nos da elegir entre dos opciones, solicitando un número.
+
+    Si elegimos la opción 1, nuestro programa solo analizará el JSON y mostrará el resultado del análisis por pantalla.
+    Si elegimos la opción 2, analizará el JSON y nos volverá a salir un menú, donde tendremos que escribir la operación que deseamos hacer y los pasos siguientes pasos ya dependerán del uso 
+    que le de el usuario.
+
+Dificultades a la hora de desarrollar la práctica:
+    1 - Primero desarrollé el trabajo en dos parser y dos lexer distintos, para ver que ambas partes funcionaban por separado. 
+            Tuve que buscar una manera de almacenar los datos del JSON, así como hacer sus respectivas reservas de memoria, funciones especificas para reservar memoria en caso de los tipos y 
+            habilidades, lo que al principio daba ciertos errores.
+    2 - En el combate me di cuenta de que si el rival y yo teníamos el mismo Pokémon, estábamos modificando los mismos datos, por lo que tuve que realizar clonaciones a la hora de crear los equipos.
+
+Aclaraciones:
+    - Para realizar el combate hice funciones que creaban equipos accediendo a los valores que ya tenía. Para atacar tuve en cuenta el daño del atacante, la defensa del defensor y ambos tipos.
+      Para no complicar demasiado el desarrollo calculé la efectividad entre fuego, agua y planta, ya que hay demasiados tipos en el juego y se extendería demasiado.
+
+    - Se asume que los valores que se introducen al 'añadir pokemon' por el usuario son valores válidos. Ha de tener en cuenta que la efectividad en combate solo será relevante si el Pokémon que 
+    ha añadido tiene alguno de los siguientes tipos: Grass, Fire, Water.
+
+    - No se puede cambiar si no se empezó el combate. No se puede cambiar si no queda, como mínimo, un Pokémon vivo(sin contar el que está en combate).
+
+    - Añadí algunas representaciones en ascii solo para hacerlo más llamativo para el usuario.
+    
+Ejemplos y resultados esperados:
+    Para cambiar el ejemplo hacerlo sobre el Makefile
+    - pokemon.json: este JSON es válido, no devuelve errores.
+    - ejemplo1pokemon.json: EError en la línea 4: Falta la clave 'NAME'.
+    - ejemplo2pokemon.json: Error en la línea 7: Falta la sección 'BASE_STATS'.
+    - ejemplo3pokemon.json: Error en la línea 8: Valor incorrecto en ATTACK'.
+    - ejemplo4pokemon.json: Error en la línea 9: Falta la coma en ATTACK'.
+    - ejemplo5pokemon.json: Error en la línea 15: Valor incorrecto en 'HIDDEN_ABILITY'.
+
+    
+

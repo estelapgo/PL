@@ -1,0 +1,148 @@
+[
+    {
+      "id": 1,
+      "type": ["Grass", "Poison"],
+      "base_stats": {
+        "hp": 45,
+        "attack": 49,
+        "defense": 49,
+        "special_attack": 65,
+        "special_defense": 65,
+        "speed": 45
+      },
+      "abilities": ["Overgrow"],
+      "hidden_ability": "Chlorophyll",
+      "evolutions": [2]
+    },
+    {
+      "id": 2,
+      "name": "Ivysaur",
+      "type": ["Grass", "Poison"],
+      "base_stats": {
+        "hp": 60,
+        "attack": 62,
+        "defense": 63,
+        "special_attack": 80,
+        "special_defense": 80,
+        "speed": 60
+      },
+      "abilities": ["Overgrow"],
+      "hidden_ability": "Chlorophyll",
+      "evolutions": [3]
+    },
+    {
+      "id": 3,
+      "name": "Venusaur",
+      "type": ["Grass", "Poison"],
+      "base_stats": {
+        "hp": 80,
+        "attack": 82,
+        "defense": 83,
+        "special_attack": 100,
+        "special_defense": 100,
+        "speed": 80
+      },
+      "abilities": ["Overgrow"],
+      "hidden_ability": "Chlorophyll",
+      "evolutions": []
+    },
+    {
+      "id": 4,
+      "name": "Charmander",
+      "type": ["Fire"],
+      "base_stats": {
+        "hp": 39,
+        "attack": 52,
+        "defense": 43,
+        "special_attack": 60,
+        "special_defense": 50,
+        "speed": 65
+      },
+      "abilities": ["Blaze"],
+      "hidden_ability": "SolarPower",
+      "evolutions": [5]
+    },
+    {
+      "id": 5,
+      "name": "Charmeleon",
+      "type": ["Fire"],
+      "base_stats": {
+        "hp": 58,
+        "attack": 64,
+        "defense": 58,
+        "special_attack": 80,
+        "special_defense": 65,
+        "speed": 80
+      },
+      "abilities": ["Blaze"],
+      "hidden_ability": "SolarPower",
+      "evolutions": [6]
+    },
+    {
+      "id": 6,
+      "name": "Charizard",
+      "type": ["Fire", "Flying"],
+      "base_stats": {
+        "hp": 78,
+        "attack": 84,
+        "defense": 78,
+        "special_attack": 109,
+        "special_defense": 85,
+        "speed": 100
+      },
+      "abilities": ["Blaze"],
+      "hidden_ability": "SolarPower",
+      "evolutions": []
+    },
+
+    {
+      "id": 7,
+      "name": "Squirtle",
+      "type": ["Water"],
+      "base_stats": {
+        "hp": 44,
+        "attack": 48,
+        "defense": 65,
+        "special_attack": 50,
+        "special_defense": 64,
+        "speed": 43
+      },
+      "abilities": ["Torrent"],
+      "hidden_ability": "RainDish",
+      "evolutions": [8]
+    },
+    {
+      "id": 9,
+      "name": "Blastoise",
+      "type": ["Water"],
+      "base_stats": {
+        "hp": 79,
+        "attack": 83,
+        "defense": 100,
+        "special_attack": 85,
+        "special_defense": 105,
+        "speed": 78
+      },
+      "abilities": ["Torrent"],
+      "hidden_ability": "RainDish",
+      "evolutions": []
+    },
+    {
+      "id": 55,
+      "name": "Poliwhirl",
+      "type": ["Water"],
+      "base_stats": {
+        "hp": 65,
+        "attack": 50,
+        "defense": 50,
+        "special_attack": 40,
+        "special_defense": 50,
+        "speed": 90
+      },
+      "abilities": ["WaterAbsorb"],
+      "hidden_ability": "Damp",
+      "evolutions": [56]
+    }
+    
+    
+]

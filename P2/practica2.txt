@@ -1,0 +1,42 @@
+Estela Pillo González
+
+OBJETIVO DE LA PRÁCTICA:
+Se desarrollará un validador de la sintaxis de un fichero XML, mediante FLEX y BISON.
+Tomará como ejemplo de entrada un fichero XML y devolverá como resultado la validación.
+En caso de presentar algún error se mostrará información sobre su tipo. Una vez detectado
+un error se terminará el análisis del fichero.
+
+DESARROLLO:
+Como objetivo principal hice que se pudiesen reconocer comentarios, etiquetas, declaraciones
+y texto en general. Para empezar definí las variables y expresiones regulares que fuesen capaces de 
+detectar cualquier combinación que se pueda presentar en los XML.
+
+Los errores que capta mi programa son los siguientes:
+    -Incoherencia entre etiquetas de apertura y cierre.
+    -Uso de comentarios previos a una declaración.
+    -Falta de cierres de etiquetas.
+    -Caracteres no reconocidos.
+
+1-Comparé etiquetas de apertura y cierre para verificar que recibiesen el mismo nombre.
+
+2-Para controlar que no se usasen comentarios previos a declaraciones uso una variable, la cual se incrementa
+cada vez que se encuentra un comentario. Una vez se detecta una declaración, se verifica que no haya comentarios 
+previos en el XML.
+
+3-Utilicé dos contadores que se modifican con la apertura y cierre de etiquetas. Si al terminar el programa se detecta
+que faltan etiquetas por cerrar, genera un error. 
+
+4-Definí reglas para procesar cualquier combinación de caracteres, generando un error si el texto no se puede reconocer.
+
+PRUEBAS:
+Finalmente, para probar el funcionamiento del programa, utilicé los dos ejemplos que se me proporcionan y cree varios XML a 
+modo de prueba para visualizar el correcto funcionamiento del validador y su gestión de errores.
+
+Los resultados esperados para los tests son los siguientes:
+-Ejemplo1: Sintaxis XML correcta.  
+-Ejemplo2: Sintaxis XML incorrecta. Error en línea 18: encontrado "</XD>" y se esperaba "</CD>". 
+-Ejemplo3: Error en línea 8: falta cierre de etiqueta.
+-Ejemplo4: Sintaxis XML incorrecta. Error en línea 6: encontrado "</sect>" y se esperaba "</document>". 
+-Ejemplo5: Error en línea 2: no pueden aparecer comentarios antes de una declaración.
+-Ejemplo6: Sintaxis XML correcta.
+

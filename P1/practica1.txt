@@ -1,0 +1,33 @@
+Estela Pillo González
+
+OBJETIVO DE LA PRÁCTICA: 
+Se desarrollará un analizador de texto que muestre información
+acerca del número de caracteres, palabras, palabras formadas solo por mayúsculas, palabras 
+formadas solo por minúsculas, palabras numéricas y frases.
+
+DESARROLLO:
+Al comienzo de la práctica, en la sección de declaraciones, empiezo definiendo las 
+variables globales que se usarán para realizar los conteos que se piden.
+
+A continuación, se definen las expresiones regulares que se necesitarán para detectar los 
+distintos elementos del texto, como pueden ser los dígitos, las palabras, etc.
+
+En la siguiente sección se definen las reglas que indicarán cómo actuar cuando se detecten
+ciertos patrones en el texto, en este caso, para sabér qué contador aumentar. Por ejemplo, 
+cuando recibe una cadena de caracteres formada por mayúsculas se incrementarán los contadores
+de palabras, palabras formadas solo por mayúsculas y caracteres(un incremento por cada uno de ellos).
+Este proceso se realizará para las diferentes cadenas de caracteres que pueda recibir.
+
+Por último, en la sección de código, se llamará al analizador léxico y se imprimirán los valores
+obtenidos para cada contador.
+
+ACLARACIONES:
+
+    -Una palabra o conjunto de palabras que termine en "..." será considerada UNA ÚNICA frase.
+    -Las palabras formadas al completo por mayúsculas o por minúsculas, aumentarán los contadores de
+    mayus y minus, independientemente de si presentan tildes o no.
+    -El "enter" es considerado un caracter.
+    -Las palabras mayúsculas o minúsculas que estén seguidas de caracteres especiales como: ".", ";", 
+    ":", etc. siguen siendo consideradas palabras mayúsculas o minúsculas. Es decir, la cadena 
+    "hola, hola;" contiene dos palabras minúsculas.
+

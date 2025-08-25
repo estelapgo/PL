@@ -1,0 +1,8 @@
+<book>
+    <title>XML</title>
+    <author>Estela</author>
+</book>
+<chapter>
+    <title>Introducción</title>
+    <content>Hola.</content>
+<!-- Aquí falta el cierre de la etiqueta <chapter> -->

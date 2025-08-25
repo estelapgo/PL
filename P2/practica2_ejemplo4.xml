@@ -1,0 +1,7 @@
+<document>
+    <section>
+        <title>About XML</title>
+        <content>XML is a markup language.</content>
+    </section>
+    </sect> <!-- Etiqueta de cierre incorrecta -->
+</document>

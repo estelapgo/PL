@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Documento de ejemplo -->
+<book>
+    <title>XML</title>
+    <author>Estela</author>
+    <chapter>
+        <title>Capitulo 1</title>
+        <content>Introducción.</content>
+    </chapter>
+    <chapter>
+        <title>Capitulo2</title>
+        <content>Uso avanzado.</content>
+    </chapter>
+</book>
